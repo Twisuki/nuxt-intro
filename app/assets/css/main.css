@@ -1,0 +1,21 @@
+@import "modern-css-reset";
+
+:root {
+	--color-text: #ffffff99;
+	--bg-card: #ffffff22;
+	--bg-card-hover: #ffffff44;
+	--bg-cover: #00000066;
+
+
+	/* 通用 */
+	--radius: 1rem;
+}
+
+.light-mode {
+	--color-text: #ffffff99;
+	--bg-card: #ffffff22;
+}
+
+body {
+
+}
