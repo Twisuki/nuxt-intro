@@ -1,8 +1,17 @@
 # nuxt-intro
 
-## setup
+## Setup
 
 ``` bash
 $ pnpm install
 $ pnpm dev
 ```
+
+## Structure
+
+`app` - root
+`app/types` - typescript types of config
+`app/utils` - utility functions for loading config
+`config` - custom user config
+`config/layouts` - custom markdown files for layouts
+`config/theme.ts` - custim theme config
