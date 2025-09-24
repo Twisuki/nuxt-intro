@@ -1,11 +1,11 @@
 <script setup lang="ts">
-interface ContactItem {
+interface NavbarButton {
   name: string
   icon: Element | string
   link: string
 }
 
-defineProps<ContactItem>()
+defineProps<NavbarButton>()
 </script>
 
 <template>
@@ -29,8 +29,8 @@ defineProps<ContactItem>()
 
 <style scoped>
 .root {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,8 +38,8 @@ defineProps<ContactItem>()
 
 .root a {
   display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -48,11 +48,10 @@ defineProps<ContactItem>()
 }
 
 .root a:hover {
-  transform: rotate(15deg) scale(1.1);
   color: var(--text-light);
 }
 
 .root i {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 </style>

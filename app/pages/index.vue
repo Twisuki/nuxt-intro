@@ -4,11 +4,11 @@ import navigationItem from "~/components/index/navigationItem.vue"
 import ContactItem from "~/components/index/contactItem.vue"
 
 const navigationList = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "/about" },
-  { name: "Blog", link: "/blog" },
-  { name: "Projects", link: "/projects" },
-  { name: "Contact", link: "/contact" },
+  { name: "Bio", link: "/bio" },
+  { name: "Resume", link: "/resume" },
+  { name: "Competitions", link: "/competitions" },
+  { name: "Awards", link: "/awards" },
+  { name: "Research", link: "/research" },
 ]
 
 const contactList = [
@@ -20,7 +20,7 @@ const contactList = [
 </script>
 
 <template>
-  <div class="body">
+  <div class="index">
     <background
       :src="'/shizuku.png'"
       :css="{
@@ -64,7 +64,7 @@ const contactList = [
 </template>
 
 <style scoped>
-.body {
+.index {
   position: fixed;
   left: 0;
   top: 0;

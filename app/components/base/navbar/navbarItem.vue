@@ -1,17 +1,19 @@
 <script setup lang="ts">
-interface NavigationItem {
+interface NavbarItem {
   name: string
   link: string
+  isActived: boolean
 }
 
-defineProps<NavigationItem>()
+defineProps<NavbarItem>()
 </script>
 
 <template>
   <a
-    class="root"
     :href="link"
     rel="noopener noreferrer"
+    :class="isActived ? 'active' : ''"
+    class="root"
   >
     <div class="name">
       {{ name }}
@@ -29,13 +31,13 @@ defineProps<NavigationItem>()
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--text);
   text-decoration: none;
 }
 
 .name {
+  color: var(--text);
   font-size: 1.125rem;
-  transition: font-size 0.1s ease;
+  transition: color 0.3s ease;
 }
 
 .underline {
@@ -47,19 +49,31 @@ defineProps<NavigationItem>()
 
 .underline span {
   display: block;
-  width: 90%;
+  width: 0;
   height: 0.125rem;
   background-color: var(--text);
   border-radius: 0.0625rem;
-  transition: background-color 0.1s ease;
+  transition: width 0.3s ease;
+}
+
+.root.active {
+  & .name {
+    color: var(--text-light);
+  }
+
+  & .underline span {
+    width: 100%;
+    background-color: var(--text-light);
+  }
 }
 
 .root:hover {
-  color: var(--text-light);
   & .name {
-    font-size: 1.25rem;
+    color: var(--text-light);
   }
-  & span {
+
+  & .underline span {
+    width: 100%;
     background-color: var(--text-light);
   }
 }
