@@ -1,20 +1,42 @@
 <script setup lang="ts">
 interface BackGround {
-  url?: string | null
-  css?: string
+  src?: string | null
+  css?: object
 }
 
-const props = withDefaults(defineProps<BackGround>(), {
-  url: "/shizuku.png",
-});
+const props = defineProps<BackGround>()
+const defaultCSS = {
+  background: "#2b2b3b",
+}
+
+const backgroundStyle = () => {
+  // 默认样式
+  if (props.src === undefined && props.css === undefined) {
+    return {
+      backgroundImage: undefined,
+      ...defaultCSS,
+    }
+  }
+
+  // src = null, 不使用背景
+  if (props.src === null) {
+    return {
+      backgroundImage: undefined,
+    }
+  }
+
+  return {
+    backgroundImage: `url(${props.src})`,
+    ...props.css,
+  }
+}
 </script>
 
 <template>
   <div
-      class="bg"
-      :style="{
-      backgroundImage: props.css ? undefined : `url(${props.url})`,
-      background: props.css,
+    class="bg"
+    :style="{
+      ...backgroundStyle(),
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

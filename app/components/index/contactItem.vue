@@ -10,9 +10,19 @@ defineProps<NavigationItem>()
 
 <template>
   <div class="root">
-    <a :href="link" target="_blank" rel="noopener noreferrer">
-      <i :class="icon" v-if="typeof icon === 'string'"></i>
-      <component :is="icon" v-else />
+    <a
+      :href="link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i
+        v-if="typeof icon === 'string'"
+        :class="icon"
+      />
+      <component
+        :is="icon"
+        v-else
+      />
     </a>
   </div>
 </template>
@@ -33,12 +43,13 @@ defineProps<NavigationItem>()
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #000000;
+  color: var(--text);
   transition: transform 0.3s ease;
 }
 
 .root a:hover {
   transform: rotate(15deg) scale(1.1);
+  color: var(--text-light);
 }
 
 .root i {

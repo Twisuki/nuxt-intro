@@ -8,14 +8,19 @@ defineProps<NavigationItem>()
 </script>
 
 <template>
-  <div class="root">
+  <a
+    class="root"
+    :href="link"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <div class="name">
       {{ name }}
     </div>
     <div class="underline">
-      <span></span>
+      <span />
     </div>
-  </div>
+  </a>
 </template>
 
 <style scoped>
@@ -25,10 +30,12 @@ defineProps<NavigationItem>()
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--text);
 }
 
 .name {
   font-size: 1.125rem;
+  transition: font-size 0.1s ease;
 }
 
 .underline {
@@ -42,7 +49,18 @@ defineProps<NavigationItem>()
   display: block;
   width: 90%;
   height: 0.125rem;
-  background-color: #000000;
+  background-color: var(--text);
   border-radius: 0.0625rem;
+  transition: background-color 0.1s ease;
+}
+
+.root:hover {
+  color: var(--text-light);
+  & .name {
+    font-size: 1.25rem;
+  }
+  & span {
+    background-color: var(--text-light);
+  }
 }
 </style>

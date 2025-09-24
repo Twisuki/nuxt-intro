@@ -1,7 +1,10 @@
 @import "modern-css-reset";
 
 :root {
-	--color-text: #ffffff99;
+	--text: #ffffff99;
+	--text-light: #ffffffff;
+	--text-dark: #000000cc;
+
 	--bg-card: #ffffff22;
 	--bg-card-hover: #ffffff44;
 	--bg-cover: #00000066;

@@ -21,7 +21,12 @@ const contactList = [
 
 <template>
   <div class="body">
-    <background />
+    <background
+      :src="'/shizuku.png'"
+      :css="{
+        filter: 'brightness(0.5)',
+      }"
+    />
 
     <div class="container">
       <div class="title">
@@ -48,7 +53,11 @@ const contactList = [
         />
       </div>
       <div class="contact">
-        <contactItem v-for="(item, index) in contactList" :key="index" v-bind="item" />
+        <contactItem
+          v-for="(item, index) in contactList"
+          :key="index"
+          v-bind="item"
+        />
       </div>
     </div>
   </div>
@@ -68,15 +77,12 @@ const contactList = [
 
 .container {
   width: 25rem;
-  height: 40rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 .title {
   height: 10rem;
-  background-color: #aaff00;
   display: flex;
 }
 
@@ -100,28 +106,28 @@ const contactList = [
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  color: var(--text-light);
 }
 
 .title__name {
   font-size: 2rem;
   font-weight: bold;
-  color: #ffffff;
 }
 
 .title__welcome {
   font-size: 1.125rem;
-  color: #ffffff;
 }
 
 .navigation {
-  background-color: #00aaff;
+  margin-top: -1rem;
+  color: #ffffff;
 }
 
 .contact {
-  background-color: #aa00ff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  color: #ffffff;
 }
 </style>
