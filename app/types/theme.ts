@@ -33,5 +33,4 @@ interface LayoutConfig {
 interface Layout {
   name?: string
   index: number
-  path?: string
 }

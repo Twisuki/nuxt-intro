@@ -37,15 +37,14 @@ const normalizeContact = (userContact: UserContact[]): Contact[] => {
 }
 
 interface Layout {
+  key: string
   name: string
-  path: string
   link: string
 }
 
 interface UserSingleLayout {
   name?: string
   index: number
-  path?: string
 }
 
 interface UserLayout {
@@ -57,11 +56,11 @@ interface UserLayout {
 }
 
 const defaultLayout: Layout[] = [
-  { name: "Bio", path: "/bio", link: "/bio" },
-  { name: "Resume", path: "/resume", link: "/resume" },
-  { name: "Competitions", path: "/competitions", link: "/competitions" },
-  { name: "Awards", path: "/awards", link: "/awards" },
-  { name: "Research", path: "/research", link: "/research" },
+  { key: "bio", name: "Bio", link: "/bio" },
+  { key: "resume", name: "Resume", link: "/resume" },
+  { key: "competitions", name: "Competitions", link: "/competitions" },
+  { key: "awards", name: "Awards", link: "/awards" },
+  { key: "research", name: "Research", link: "/research" },
 ]
 
 const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
@@ -71,62 +70,62 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
 
   if ("bio" in userLayout && userLayout.bio !== false) {
     layouts.push({
+      key: "bio",
       name: userLayout.bio?.name || "Bio",
-      path: userLayout.bio?.path || "/bio",
       index: userLayout.bio?.index ?? 0,
       link: "/bio",
     })
   }
   else if (!("bio" in userLayout) || userLayout.bio !== false) {
-    layouts.push({ name: "Bio", path: "/bio", index: 0, link: "/bio" })
+    layouts.push({ name: "Bio", key: "bio", index: 0, link: "/bio" })
   }
 
   if ("resume" in userLayout && userLayout.resume !== false) {
     layouts.push({
+      key: "resume",
       name: userLayout.resume?.name || "Resume",
-      path: userLayout.resume?.path || "/resume",
       index: userLayout.resume?.index ?? 1,
       link: "/resume",
     })
   }
   else if (!("resume" in userLayout) || userLayout.resume !== false) {
-    layouts.push({ name: "Resume", path: "/resume", index: 1, link: "/resume" })
+    layouts.push({ key: "resume", name: "Resume", index: 1, link: "/resume" })
   }
 
   if ("competitions" in userLayout && userLayout.competitions !== false) {
     layouts.push({
+      key: "competitions",
       name: userLayout.competitions?.name || "Competitions",
-      path: userLayout.competitions?.path || "/competitions",
       index: userLayout.competitions?.index ?? 2,
       link: "/competitions",
     })
   }
   else if (!("competitions" in userLayout) || userLayout.competitions !== false) {
-    layouts.push({ name: "Competitions", path: "/competitions", index: 2, link: "/competitions" })
+    layouts.push({ key: "competitions", name: "Competitions", index: 2, link: "/competitions" })
   }
 
   if ("awards" in userLayout && userLayout.awards !== false) {
     layouts.push({
+      key: "awards",
       name: userLayout.awards?.name || "Awards",
-      path: userLayout.awards?.path || "/awards",
       index: userLayout.awards?.index ?? 3,
       link: "/awards",
     })
   }
   else if (!("awards" in userLayout) || userLayout.awards !== false) {
-    layouts.push({ name: "Awards", path: "/awards", index: 3, link: "/awards" })
+    layouts.push({ key: "awards", name: "Awards", index: 3, link: "/awards" })
   }
 
   if ("research" in userLayout && userLayout.research !== false) {
     layouts.push({
+      key: "research",
       name: userLayout.research?.name || "Research",
-      path: userLayout.research?.path || "/research",
       index: userLayout.research?.index ?? 4,
       link: "/research",
     })
   }
   else if (!("research" in userLayout) || userLayout.research !== false) {
-    layouts.push({ name: "Research", path: "/research", index: 4, link: "/research" })
+    layouts.push({ key: "research", name: "Research", index: 4, link: "/research" })
   }
 
   // 排序
@@ -134,8 +133,8 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
 
   return layouts.map((item) => {
     return {
+      key: item.key,
       name: item.name,
-      path: item.path,
       link: item.link,
     }
   })

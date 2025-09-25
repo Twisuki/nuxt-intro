@@ -14,7 +14,7 @@ interface Contact {
 }
 
 interface Layout {
+  key: string
   name: string
-  path: string
   link: string
 }
