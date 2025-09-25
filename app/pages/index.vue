@@ -3,6 +3,8 @@ import Background from "~/components/base/background.vue"
 import navigationItem from "~/components/index/navigationItem.vue"
 import ContactItem from "~/components/index/contactItem.vue"
 
+import { config } from "~/utils/config"
+
 const navigationList = [
   { name: "Bio", link: "/bio" },
   { name: "Resume", link: "/resume" },
@@ -60,7 +62,7 @@ const titleTyping = () => {
         </div>
         <div class="title__intro">
           <div class="title__name">
-            <span>Twisuki</span>
+            <span>{{ config.name }}</span>
           </div>
           <div
             ref="titleWelcomeRef"
