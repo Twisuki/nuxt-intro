@@ -17,6 +17,28 @@ const contactList = [
   { name: "LinkedIn", icon: "fa-brands fa-linkedin-in", link: "" },
   { name: "Email", icon: "fa-solid fa-envelope", link: "" },
 ]
+
+onMounted(() => {
+  titleTyping()
+})
+
+const titleWelcomeRef = ref<Element | null>(null)
+const typingSpeed = 15
+const titleTyping = () => {
+  if (titleWelcomeRef.value) {
+    const text = titleWelcomeRef.value.textContent || ""
+    let index = 0
+    titleWelcomeRef.value.textContent = ""
+    const typing = () => {
+      if (index < text.length) {
+        titleWelcomeRef.value.textContent += text.charAt(index)
+        index++
+        setTimeout(typing, 1000 / typingSpeed)
+      }
+    }
+    typing()
+  }
+}
 </script>
 
 <template>
@@ -40,7 +62,10 @@ const contactList = [
           <div class="title__name">
             <span>Twisuki</span>
           </div>
-          <div class="title__welcome">
+          <div
+            ref="titleWelcomeRef"
+            class="title__welcome"
+          >
             <span>Welcome to Twisuki ~</span>
           </div>
         </div>
@@ -98,6 +123,11 @@ const contactList = [
   width: 6.5rem;
   height: 6.5rem;
   border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.title__avatar:hover img {
+  transform: scale(1.1);
 }
 
 .title__intro {

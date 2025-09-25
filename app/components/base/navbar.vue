@@ -22,17 +22,18 @@ const contactList = [
 
 <template>
   <div class="navbar">
-    <a
+    <div
       class="start"
-      href="/"
     >
       <div class="sidabarToggle">
         <span />
         <span />
         <span />
       </div>
-      Twisuki
-    </a>
+      <a href="/">
+        Twisuki
+      </a>
+    </div>
     <div class="middle">
       <navbarItem
         v-for="(item, index) of navbarList"
@@ -68,6 +69,9 @@ const contactList = [
   height: 100%;
   gap: 1rem;
   font-size: 1.25rem;
+}
+
+.start a {
   color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -93,8 +97,14 @@ const contactList = [
   }
 }
 
+.sidabarToggle:active span {
+  transform: scale(0.95);
+}
+
 .start:hover {
-  color: var(--text-light);
+  & a {
+    color: var(--text-light);
+  }
 
   & .sidabarToggle {
     border: 3px solid var(--text-light);
