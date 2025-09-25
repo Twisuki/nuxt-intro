@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { getContent } from "~/utils/markdown";
+import { getContent } from "~/utils/markdown"
 
 definePageMeta({
   layout: "pages",
 })
 
 const { data } = await useAsyncData(
-    'bio',
-    () => getContent('competitions.md')
+  "bio",
+  () => getContent("competitions.md"),
 )
 </script>
 
 <template>
   <div class="main">
-    <div v-html="data?.html" class="prose"></div>
+    <div
+      class="prose"
+      v-html="data?.html"
+    />
   </div>
 </template>
 
