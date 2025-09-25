@@ -5,12 +5,12 @@ import themeConfig from "~~/config/theme"
 interface UserContact {
   name: string
   icon?: string
-  url: string
+  link: string
 }
 
 interface Contact {
   icon: string
-  url: string
+  link: string
 }
 
 const presetContactLogo = {
@@ -31,7 +31,7 @@ const normalizeContact = (userContact: UserContact[]): Contact[] => {
     }
     return {
       icon: icon,
-      url: item.url,
+      link: item.link,
     }
   })
 }
@@ -39,6 +39,7 @@ const normalizeContact = (userContact: UserContact[]): Contact[] => {
 interface Layout {
   name: string
   path: string
+  link: string
 }
 
 interface UserSingleLayout {
@@ -56,11 +57,11 @@ interface UserLayout {
 }
 
 const defaultLayout: Layout[] = [
-  { name: "Bio", path: "/bio" },
-  { name: "Resume", path: "/resume" },
-  { name: "Competitions", path: "/competitions" },
-  { name: "Awards", path: "/awards" },
-  { name: "Research", path: "/research" },
+  { name: "Bio", path: "/bio", link: "/bio" },
+  { name: "Resume", path: "/resume", link: "/resume" },
+  { name: "Competitions", path: "/competitions", link: "/competitions" },
+  { name: "Awards", path: "/awards", link: "/awards" },
+  { name: "Research", path: "/research", link: "/research" },
 ]
 
 const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
@@ -72,11 +73,12 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
     layouts.push({
       name: userLayout.bio?.name || "Bio",
       path: userLayout.bio?.path || "/bio",
-      index: userLayout.bio?.index ?? 0, // 如果 userLayout.bio.index 是 undefined，默认 0
+      index: userLayout.bio?.index ?? 0,
+      link: "/bio",
     })
   }
   else if (!("bio" in userLayout) || userLayout.bio !== false) {
-    layouts.push({ name: "Bio", path: "/bio", index: 0 })
+    layouts.push({ name: "Bio", path: "/bio", index: 0, link: "/bio" })
   }
 
   if ("resume" in userLayout && userLayout.resume !== false) {
@@ -84,10 +86,11 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
       name: userLayout.resume?.name || "Resume",
       path: userLayout.resume?.path || "/resume",
       index: userLayout.resume?.index ?? 1,
+      link: "/resume",
     })
   }
   else if (!("resume" in userLayout) || userLayout.resume !== false) {
-    layouts.push({ name: "Resume", path: "/resume", index: 1 })
+    layouts.push({ name: "Resume", path: "/resume", index: 1, link: "/resume" })
   }
 
   if ("competitions" in userLayout && userLayout.competitions !== false) {
@@ -95,10 +98,11 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
       name: userLayout.competitions?.name || "Competitions",
       path: userLayout.competitions?.path || "/competitions",
       index: userLayout.competitions?.index ?? 2,
+      link: "/competitions",
     })
   }
   else if (!("competitions" in userLayout) || userLayout.competitions !== false) {
-    layouts.push({ name: "Competitions", path: "/competitions", index: 2 })
+    layouts.push({ name: "Competitions", path: "/competitions", index: 2, link: "/competitions" })
   }
 
   if ("awards" in userLayout && userLayout.awards !== false) {
@@ -106,10 +110,11 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
       name: userLayout.awards?.name || "Awards",
       path: userLayout.awards?.path || "/awards",
       index: userLayout.awards?.index ?? 3,
+      link: "/awards",
     })
   }
   else if (!("awards" in userLayout) || userLayout.awards !== false) {
-    layouts.push({ name: "Awards", path: "/awards", index: 3 })
+    layouts.push({ name: "Awards", path: "/awards", index: 3, link: "/awards" })
   }
 
   if ("research" in userLayout && userLayout.research !== false) {
@@ -117,10 +122,11 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
       name: userLayout.research?.name || "Research",
       path: userLayout.research?.path || "/research",
       index: userLayout.research?.index ?? 4,
+      link: "/research",
     })
   }
   else if (!("research" in userLayout) || userLayout.research !== false) {
-    layouts.push({ name: "Research", path: "/research", index: 4 })
+    layouts.push({ name: "Research", path: "/research", index: 4, link: "/research" })
   }
 
   // 排序
@@ -130,6 +136,7 @@ const normalizeLayout = (userLayout: UserLayout | {}): Layout[] => {
     return {
       name: item.name,
       path: item.path,
+      link: item.link,
     }
   })
 }

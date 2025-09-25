@@ -1,6 +1,5 @@
 <script setup lang="ts">
 interface NavbarButton {
-  name: string
   icon: Element | string
   link: string
 }

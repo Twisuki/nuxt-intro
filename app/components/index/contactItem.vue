@@ -1,6 +1,5 @@
 <script setup lang="ts">
 interface ContactItem {
-  name: string
   icon: Element | string
   link: string
 }

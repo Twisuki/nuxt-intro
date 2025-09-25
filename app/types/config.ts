@@ -9,10 +9,11 @@ export interface Config {
 
 interface Contact {
   icon: string
-  url: string
+  link: string
 }
 
 interface Layout {
   name: string
   path: string
+  link: string
 }

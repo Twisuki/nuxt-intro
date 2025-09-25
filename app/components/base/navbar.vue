@@ -2,22 +2,14 @@
 import NavbarItem from "~/components/base/navbar/navbarItem.vue"
 import NavbarButton from "~/components/base/navbar/navbarButton.vue"
 
+import { config } from "~/utils/config"
+
 const route = useRoute()
 
-const navbarList = [
-  { name: "Bio", link: "/bio" },
-  { name: "Resume", link: "/resume" },
-  { name: "Competitions", link: "/competitions" },
-  { name: "Awards", link: "/awards" },
-  { name: "Research", link: "/research" },
-]
+const navbarList = config.layout.map(item => {
+  return { name: item.name, link: item.link }
+})
 
-const contactList = [
-  { name: "Github", icon: "fa-brands fa-github", link: "" },
-  { name: "Twitter", icon: "fa-brands fa-x-twitter", link: "" },
-  { name: "LinkedIn", icon: "fa-brands fa-linkedin-in", link: "" },
-  { name: "Email", icon: "fa-solid fa-envelope", link: "" },
-]
 </script>
 
 <template>
@@ -31,7 +23,7 @@ const contactList = [
         <span />
       </div>
       <a href="/">
-        Twisuki
+        {{ config.name }}
       </a>
     </div>
     <div class="middle">
@@ -44,7 +36,7 @@ const contactList = [
     </div>
     <div class="end">
       <navbarButton
-        v-for="(item, index) in contactList"
+        v-for="(item, index) in config.contact"
         :key="index"
         v-bind="item"
       />

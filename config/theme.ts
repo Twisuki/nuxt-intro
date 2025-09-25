@@ -9,7 +9,7 @@ export default {
     avatar: "/avatar.png",
     welcome: "Welcome to my site!",
     contact: [
-      { name: "Github", url: "github.com/Twisuki" },
+      { name: "Github", link: "https://github.com/Twisuki" },
     ],
   },
   layout: {

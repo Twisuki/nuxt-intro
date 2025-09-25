@@ -5,20 +5,9 @@ import ContactItem from "~/components/index/contactItem.vue"
 
 import { config } from "~/utils/config"
 
-const navigationList = [
-  { name: "Bio", link: "/bio" },
-  { name: "Resume", link: "/resume" },
-  { name: "Competitions", link: "/competitions" },
-  { name: "Awards", link: "/awards" },
-  { name: "Research", link: "/research" },
-]
-
-const contactList = [
-  { name: "Github", icon: "fa-brands fa-github", link: "" },
-  { name: "Twitter", icon: "fa-brands fa-x-twitter", link: "" },
-  { name: "LinkedIn", icon: "fa-brands fa-linkedin-in", link: "" },
-  { name: "Email", icon: "fa-solid fa-envelope", link: "" },
-]
+const navigationList = config.layout.map(item => {
+  return { name: item.name, link: item.link }
+})
 
 onMounted(() => {
   titleTyping()
@@ -56,7 +45,7 @@ const titleTyping = () => {
       <div class="title">
         <div class="title__avatar">
           <img
-            src="/avatar.png"
+            :src="config.avatar"
             alt="avatar"
           >
         </div>
@@ -68,7 +57,7 @@ const titleTyping = () => {
             ref="titleWelcomeRef"
             class="title__welcome"
           >
-            <span>Welcome to Twisuki ~</span>
+            <span>{{ config.welcome }}</span>
           </div>
         </div>
       </div>
@@ -81,7 +70,7 @@ const titleTyping = () => {
       </div>
       <div class="contact">
         <contactItem
-          v-for="(item, index) in contactList"
+          v-for="(item, index) in config.contact"
           :key="index"
           v-bind="item"
         />

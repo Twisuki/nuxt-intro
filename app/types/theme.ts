@@ -18,7 +18,7 @@ interface UserConfig {
 interface Contact {
   name: string
   icon?: string
-  url: string
+  link: string
 }
 
 interface LayoutConfig {
