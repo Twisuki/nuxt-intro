@@ -14,11 +14,15 @@
     "@nuxt/eslint-config": "^1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "eslint": "^9.35.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
     "nuxt": "^4.1.2",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^24.5.2",
     "modern-css-reset": "^1.4.0",
     "typescript": "^5.9.2"
   }

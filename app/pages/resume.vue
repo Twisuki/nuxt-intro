@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { getContent } from "~/utils/markdown";
+
 definePageMeta({
   layout: "pages",
 })
+
+const { data } = await useAsyncData(
+    'bio',
+    () => getContent('resume.md')
+)
 </script>
 
 <template>
   <div class="main">
-    <h1>Resume Page</h1>
+    <div v-html="data?.html" class="prose"></div>
   </div>
 </template>
 
