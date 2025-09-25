@@ -22,15 +22,15 @@ interface Contact {
 }
 
 interface LayoutConfig {
-  bio?: false | SingleLayout
-  resume?: false | SingleLayout
-  competitions?: false | SingleLayout
-  awards?: false | SingleLayout
-  research?: false | SingleLayout
+  bio?: false | Layout
+  resume?: false | Layout
+  competitions?: false | Layout
+  awards?: false | Layout
+  research?: false | Layout
 }
 
-interface SingleLayout {
+interface Layout {
+  name?: string
   index: number
-  name: string
-  path: string
+  path?: string
 }

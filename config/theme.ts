@@ -1,4 +1,4 @@
-import type { ThemeConfig } from "../app/types/theme"
+import type { ThemeConfig } from "~/types/theme"
 
 export default {
   site: {
@@ -8,5 +8,18 @@ export default {
     name: "Twisuki",
     avatar: "/avatar.png",
     welcome: "Welcome to my site!",
+    contact: [
+      { name: "Github", url: "github.com/Twisuki" },
+    ],
+  },
+  layout: {
+    bio: {
+      index: 1,
+    },
+    resume: false,
+    competitions: {
+      name: "竞赛",
+      index: 10,
+    },
   },
 } as ThemeConfig

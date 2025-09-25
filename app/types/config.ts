@@ -4,7 +4,7 @@ export interface Config {
   avatar: string
   welcome: string
   contact: Array<Contact>
-  layout: Array<SingleLayout>
+  layout: Array<Layout>
 }
 
 interface Contact {
@@ -12,8 +12,7 @@ interface Contact {
   url: string
 }
 
-interface SingleLayout {
+interface Layout {
   name: string
-  index: number
   path: string
 }
