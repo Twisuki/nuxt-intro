@@ -6,10 +6,9 @@ import { config } from "~/utils/config"
 
 const route = useRoute()
 
-const navbarList = config.layout.map(item => {
+const navbarList = config.layout.map((item) => {
   return { name: item.name, link: item.link }
 })
-
 </script>
 
 <template>

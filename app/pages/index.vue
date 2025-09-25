@@ -5,16 +5,16 @@ import ContactItem from "~/components/index/contactItem.vue"
 
 import { config } from "~/utils/config"
 
-const navigationList = config.layout.map(item => {
+const navigationList = config.layout.map((item) => {
   return { name: item.name, link: item.link }
 })
 
 onMounted(() => {
-  titleTyping()
+  if (config.typingSpeed !== false) titleTyping()
 })
 
 const titleWelcomeRef = ref<Element | null>(null)
-const typingSpeed = 15
+const typingSpeed = config.typingSpeed || 15
 const titleTyping = () => {
   if (titleWelcomeRef.value) {
     const text = titleWelcomeRef.value.textContent || ""

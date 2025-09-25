@@ -10,16 +10,9 @@ export default {
     welcome: "Welcome to my site!",
     contact: [
       { name: "Github", link: "https://github.com/Twisuki" },
+      { name: "LinkedIn", link: "" },
+      { name: "Email", link: "mailto://twisuki@outlook.com" },
+      { name: "Download", icon: "fa-solid fa-download", link: "" },
     ],
-  },
-  layout: {
-    bio: {
-      index: 1,
-    },
-    resume: false,
-    competitions: {
-      name: "竞赛",
-      index: 10,
-    },
   },
 } as ThemeConfig

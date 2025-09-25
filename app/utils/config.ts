@@ -148,11 +148,15 @@ const configLoader = (themeConfig: ThemeConfig): Config => {
   const userLayout = themeConfig.layout || {}
   const layout = normalizeLayout(userLayout)
 
+  let typingSpeed: false | number = 15
+  if (themeConfig.user.typingSpeed !== undefined) typingSpeed = themeConfig.user.typingSpeed
+
   return {
     site: themeConfig.site.base,
     name: themeConfig.user.name,
     avatar: themeConfig.user.avatar,
     welcome: themeConfig.user.welcome,
+    typingSpeed: typingSpeed,
     contact: contact,
     layout: layout,
   }

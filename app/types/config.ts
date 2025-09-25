@@ -3,6 +3,7 @@ export interface Config {
   name: string
   avatar: string
   welcome: string
+  typingSpeed: false | number
   contact: Array<Contact>
   layout: Array<Layout>
 }

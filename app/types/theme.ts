@@ -12,6 +12,7 @@ interface UserConfig {
   name: string
   avatar: string
   welcome: string
+  typingSpeed?: false | number
   contact?: Array<Contact>
 }
 
