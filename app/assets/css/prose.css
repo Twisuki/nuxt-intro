@@ -1,0 +1,196 @@
+/* prose Markdown 渲染 */
+
+.prose {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	line-height: 1.6;
+	color: var(--text);
+	max-width: 50rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+/* 标题 */
+.prose h1, .prose h5, .prose h6 {
+	display: none;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+	position: relative;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	line-height: 1.2;
+	transition: color 0.2s ease;
+}
+
+.prose h2 { font-size: 2rem; }
+.prose h3 { font-size: 1.5rem; }
+.prose h4 { font-size: 1.25rem; }
+
+.prose h2::before,
+.prose h3::before,
+.prose h4::before {
+	content: "#";
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: translateX(calc(-100% - 0.5rem));
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.prose h2::after,
+.prose h3::after,
+.prose h4::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -0.5rem;
+	width: 50rem;
+	height: 2px;
+	border-radius: 1px;
+	background-color: var(--text);
+	transition: background-color 0.2s ease;
+}
+
+.prose h2:hover,
+.prose h3:hover,
+.prose h4:hover {
+	color: var(--text-light);
+}
+
+.prose h2:hover::before,
+.prose h3:hover::before,
+.prose h4:hover::before {
+	opacity: 1;
+}
+
+.prose h2:hover::after,
+.prose h3:hover::after,
+.prose h4:hover::after {
+	background-color: var(--text-light);
+}
+
+/* 字体样式 */
+.prose strong {
+	font-weight: 700;
+}
+
+.prose em {
+	font-style: italic;
+}
+
+.prose s {
+	position: relative;
+	text-decoration: none;
+	padding: 0 0.5em;
+}
+
+.prose s::before, .prose s::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: var(--text-dark);
+	transform: translateY(-50%);
+	transition: width 0.2s ease;
+}
+
+.prose s::before { top: 50%; }
+.prose s::after { top: 67%; }
+
+.prose s:hover::before, .prose s:hover::after {
+	width: 0;
+}
+
+.prose code:not(pre code) {
+	display: inline-block;
+	background-color: var(--bg-code);
+	padding: 0.2em 0.4em;
+	border-radius: 0.3em;
+	font-size: 0.95em;
+}
+
+.prose code:not(pre code):hover {
+	transform: scale(1.1);
+}
+
+/* 列表 */
+.prose ul, .prose ol {
+	padding-inline-start: 1rem;
+}
+
+/* 链接 */
+.prose a:link,.prose a:visited {
+	position: relative;
+	color: var(--text-link);
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.prose a::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	border-radius: 1px;
+	background-color: var(--text-link);
+	transition: width 0.2s ease;
+}
+
+.prose a:hover::before {
+	width: 100%;
+}
+
+/* 表格 */
+.prose table {
+	border-collapse: collapse;
+	margin: 1rem 0;
+}
+
+.prose th, .prose td {
+	border: 1px solid var(--text);
+	padding: 0.5rem;
+	text-align: left;
+}
+
+.prose th {
+	background-color: var(--bg-card);
+	font-weight: 700;
+}
+
+/* 代码块 */
+.prose pre {
+	background-color: var(--bg-card);
+	padding: 1rem;
+	overflow-x: auto;
+	font-size: 1rem;
+}
+
+/* 引用 */
+.prose blockquote {
+	position: relative;
+	background-color: var(--bg-card);
+	padding: 1rem 1rem 1rem 2rem;
+	overflow-x: auto;
+}
+
+.prose blockquote::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1rem;
+	height: 100%;
+	background-color: var(--bg-card);
+	transition: background-color 0.2s ease;
+}
+
+.prose blockquote:hover::before {
+	background-color: var(--bg-card-hover);
+}

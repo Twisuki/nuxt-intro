@@ -1,11 +1,14 @@
 @import "modern-css-reset";
+@import "prose.css";
 
 :root {
 	--text: #ffffff99;
 	--text-light: #ffffffff;
 	--text-dark: #000000cc;
+	--text-link: #00aaddff;
 
 	--bg-card: #ffffff22;
+	--bg-code: #ffffff11;
 	--bg-card-hover: #ffffff44;
 	--bg-cover: #00000066;
 
