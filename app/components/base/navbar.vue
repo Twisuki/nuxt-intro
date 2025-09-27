@@ -119,4 +119,25 @@ const navbarList = config.layout.map((item) => {
   justify-content: center;
   gap: 0.25rem;
 }
+
+/* 移动设备 768 - */
+@media (max-width: 767px) {
+  .navbar {
+    display: none;
+  }
+}
+
+/* 平板设备 768 - 1024 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    display: flex;
+  }
+}
+
+/* 桌面设备 1024 + */
+@media (min-width: 1025px) {
+  .navbar {
+    display: flex;
+  }
+}
 </style>
