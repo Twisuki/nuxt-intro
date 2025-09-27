@@ -25,9 +25,9 @@
 	transition: color 0.2s ease;
 }
 
-.prose h2 { font-size: 2rem; }
-.prose h3 { font-size: 1.5rem; }
-.prose h4 { font-size: 1.25rem; }
+.prose h2 { font-size: 2.5rem; }
+.prose h3 { font-size: 2rem; }
+.prose h4 { font-size: 1.5rem; }
 
 .prose h2::before,
 .prose h3::before,
@@ -107,15 +107,9 @@
 }
 
 .prose code:not(pre code) {
-	display: inline-block;
 	background-color: var(--bg-code);
 	padding: 0.2em 0.4em;
 	border-radius: 0.3em;
-	font-size: 0.95em;
-}
-
-.prose code:not(pre code):hover {
-	transform: scale(1.1);
 }
 
 /* 列表 */
@@ -193,4 +187,8 @@
 
 .prose blockquote:hover::before {
 	background-color: var(--bg-card-hover);
+}
+
+.prose blockquote p:last-child {
+	text-align: right;
 }

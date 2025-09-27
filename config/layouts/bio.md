@@ -34,10 +34,10 @@ _倾斜_ __加粗__ **加粗2** ~~删除线~~ `关键词`
 
 <!-- ![图片测试, 白丝苏阳(意义明确的遮挡物)](https://github.com/Cute-Dress/Dress/blob/master/T/Twisuki/4.2-补充-白丝看书-241130.jpg?raw=true) -->
 
-|表头1|表头2|表头3|
-|--|--|--|
-|1.1|1.2|1.3|
-|2.1|2.2|2.3|
+| 表头1 | 表头2 | 表头3 |
+|-----|-----|-----|
+| 1.1 | 1.2 | 1.3 |
+| 2.1 | 2.2 | 2.3 |
 
 ```JavaScript
 console.log("Hello world!");
@@ -68,4 +68,4 @@ export const getContent = async (filename: string) => {
 > 
 > 在没有错误日志的情况下诊断任何问题, 无异于闭眼开车.
 > 
-> -- Apache 官方文档 GettingStarted 篇章
+> Apache 官方文档 GettingStarted 篇章
