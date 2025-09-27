@@ -2,7 +2,7 @@
 
 ## Setup
 
-``` bash
+```bash
 $ pnpm install
 $ pnpm dev
 ```

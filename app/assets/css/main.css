@@ -2,26 +2,24 @@
 @import "prose.css";
 
 :root {
-	--text: #ffffff99;
-	--text-light: #ffffffff;
-	--text-dark: #000000cc;
-	--text-link: #00aaddff;
+  --text: #ffffff99;
+  --text-light: #ffffffff;
+  --text-dark: #000000cc;
+  --text-link: #00aaddff;
 
-	--bg-card: #ffffff22;
-	--bg-code: #ffffff11;
-	--bg-card-hover: #ffffff44;
-	--bg-cover: #00000066;
+  --bg-card: #ffffff22;
+  --bg-code: #ffffff11;
+  --bg-card-hover: #ffffff44;
+  --bg-cover: #00000066;
 
-
-	/* 通用 */
-	--radius: 1rem;
+  /* 通用 */
+  --radius: 1rem;
 }
 
 .light-mode {
-	--color-text: #ffffff99;
-	--bg-card: #ffffff22;
+  --color-text: #ffffff99;
+  --bg-card: #ffffff22;
 }
 
 body {
-
 }

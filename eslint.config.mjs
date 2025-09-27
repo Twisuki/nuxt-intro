@@ -11,5 +11,9 @@ export default createConfigForNuxt({
       indent: 2,
       quotes: "double",
     },
+    formatters: {
+      css: "prettier",
+      markdown: "prettier",
+    },
   },
 })
