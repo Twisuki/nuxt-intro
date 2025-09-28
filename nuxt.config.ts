@@ -1,9 +1,11 @@
+import config from "./config/theme"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@nuxtjs/color-mode", "@nuxt/eslint", "@nuxt/eslint-config"],
   devtools: { enabled: true },
   app: {
-    baseURL: "/nuxt-intro/",
+    baseURL: config.site.base,
     head: {
       link: [
         // Font Awesome CDN
