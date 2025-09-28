@@ -9,6 +9,11 @@ const route = useRoute()
 const navbarList = config.layout.map((item) => {
   return { name: item.name, link: item.link }
 })
+
+const isDark = ref<boolean>(false);
+const toggleTheme = () => {
+  isDark.value = !isDark.value;
+};
 </script>
 
 <template>
@@ -34,6 +39,15 @@ const navbarList = config.layout.map((item) => {
       />
     </div>
     <div class="end">
+      <div
+        ref="themeElementRef"
+        class="theme"
+        :class="{ dark: isDark }"
+        @click="toggleTheme"
+      >
+        <i class="fa-solid fa-sun theme__light" />
+        <i class="fa-solid fa-moon theme__dark" />
+      </div>
       <navbarButton
         v-for="(item, index) in config.contact"
         :key="index"
@@ -120,24 +134,67 @@ const navbarList = config.layout.map((item) => {
   gap: 0.25rem;
 }
 
-/* 移动设备 768 - */
-@media (max-width: 767px) {
-  .navbar {
-    display: none;
+.theme {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.theme i {
+  position: absolute;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* light 状态 */
+.theme {
+  & .theme__light {
+    opacity: 1;
+  }
+  & .theme__dark {
+    opacity: 0;
   }
 }
 
-/* 平板设备 768 - 1024 */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .navbar {
-    display: flex;
+/* dark 状态 */
+.theme.dark {
+  & .theme__light {
+    opacity: 0;
+  }
+  & .theme__dark {
+    opacity: 1;
   }
 }
 
-/* 桌面设备 1024 + */
-@media (min-width: 1025px) {
-  .navbar {
-    display: flex;
+/* 悬浮动画 */
+.theme:hover .theme__light {
+  animation: rotate 4s linear infinite;
+}
+
+.theme:hover .theme__dark {
+  animation: swing 2s ease-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-30deg);
   }
 }
 </style>

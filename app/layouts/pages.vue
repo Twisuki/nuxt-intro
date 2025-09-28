@@ -1,6 +1,25 @@
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from "vue"
 import Background from "~/components/base/background.vue"
-import Navbar from "~/components/base/navbar.vue"
+import Navbar from "~/components/base/navbar/navbar.vue"
+import NavbarTablet from "~/components/base/navbar/navbarTablet.vue"
+
+const isDesktop = ref<boolean>(false)
+let mediaQuery: MediaQueryList
+
+onMounted(() => {
+  mediaQuery = window.matchMedia("(min-width: 1025px)")
+  isDesktop.value = mediaQuery.matches
+  mediaQuery.addEventListener("change", handleMediaChange)
+})
+
+onBeforeUnmount(() => {
+  mediaQuery.removeEventListener("change", handleMediaChange)
+})
+
+const handleMediaChange = (e: MediaQueryListEvent) => {
+  isDesktop.value = e.matches
+}
 </script>
 
 <template>
@@ -12,7 +31,8 @@ import Navbar from "~/components/base/navbar.vue"
       }"
     />
 
-    <navbar />
+    <navbar v-if="isDesktop" />
+    <navbar-tablet v-else />
 
     <div class="content">
       <slot />
