@@ -151,7 +151,7 @@ const configLoader = (themeConfig: ThemeConfig): Config => {
   if (themeConfig.user.typingSpeed !== undefined) typingSpeed = themeConfig.user.typingSpeed
 
   return {
-    site: themeConfig.site.base,
+    base: themeConfig.site.base.slice(0, -1) || "/",
     name: themeConfig.user.name,
     avatar: themeConfig.user.avatar,
     welcome: themeConfig.user.welcome,

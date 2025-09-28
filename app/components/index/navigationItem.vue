@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { config } from "~/utils/config"
+
 interface NavigationItem {
   name: string
   link: string
@@ -10,7 +12,7 @@ defineProps<NavigationItem>()
 <template>
   <a
     class="root"
-    :href="link"
+    :href="`${config.base}${link}`"
     rel="noopener noreferrer"
   >
     <div class="name">

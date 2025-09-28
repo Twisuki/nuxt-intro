@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { config } from "~/utils/config"
+
 interface NavbarItem {
   name: string
   link: string
@@ -10,7 +12,7 @@ defineProps<NavbarItem>()
 
 <template>
   <a
-    :href="link"
+    :href="`${config.base}${link}`"
     rel="noopener noreferrer"
     :class="isActived ? 'active' : ''"
     class="root"

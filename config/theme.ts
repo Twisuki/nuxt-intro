@@ -2,7 +2,7 @@ import type { ThemeConfig } from "~/types/theme"
 
 export default {
   site: {
-    base: "/",
+    base: "/nuxt-intro/",
   },
   user: {
     name: "Twisuki",

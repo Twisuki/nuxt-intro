@@ -1,5 +1,5 @@
 export interface Config {
-  site: string
+  base: string
   name: string
   avatar: string
   welcome: string
