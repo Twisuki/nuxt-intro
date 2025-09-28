@@ -77,4 +77,15 @@ defineProps<NavbarItem>()
     background-color: var(--text-light);
   }
 }
+
+/* 移动设备 768 - */
+@media (max-width: 767px) {
+  .root {
+    height: 2rem;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+}
 </style>

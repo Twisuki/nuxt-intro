@@ -81,9 +81,6 @@ const titleTyping = () => {
 
 <style scoped>
 .index {
-  position: fixed;
-  left: 0;
-  top: 0;
   width: 100vw;
   height: 100vh;
   display: flex;

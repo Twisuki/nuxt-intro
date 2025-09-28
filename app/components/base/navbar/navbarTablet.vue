@@ -228,4 +228,15 @@ const toggleNavbar = () => {
 .navbarBody.actived {
   transform: translateY(0);
 }
+
+/* 移动设备 768 - */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0 0.25rem;
+  }
+
+  .navbarBody__end {
+    gap: 0.5rem;
+  }
+}
 </style>
