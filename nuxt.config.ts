@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/color-mode", "@nuxt/eslint", "@nuxt/eslint-config"],
   devtools: { enabled: true },
   app: {
+    baseURL: "/nuxt-intro/",
     head: {
       link: [
         // Font Awesome CDN
