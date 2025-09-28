@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { config } from "~/utils/config"
 import NavbarButton from "~/components/base/navbar/navbarButton.vue"
 import NavbarItem from "~/components/base/navbar/navbarItem.vue"
+
+import { config } from "~/utils/config"
+import { useLocalState } from "~/utils/useLocalState"
 
 const route = useRoute()
 
@@ -9,14 +11,14 @@ const navbarList = config.layout.map((item) => {
   return { name: item.name, link: item.link }
 })
 
-const isDark = ref<boolean>(false);
+const isDark = useLocalState<boolean>("isDark", false)
 const toggleTheme = () => {
-  isDark.value = !isDark.value;
-};
+  isDark.value = !isDark.value
+}
 
-const isNavbarActived = ref<boolean>(false);
+const isNavbarActived = useLocalState<boolean>("isNavbarActived", false)
 const toggleNavbar = () => {
-  isNavbarActived.value = !isNavbarActived.value;
+  isNavbarActived.value = !isNavbarActived.value
 }
 </script>
 
@@ -36,34 +38,41 @@ const toggleNavbar = () => {
     </div>
     <div class="end">
       <div
-          ref="themeElementRef"
-          class="theme"
-          :class="{ dark: isDark }"
-          @click="toggleTheme"
+        ref="themeElementRef"
+        class="theme"
+        :class="{ dark: isDark }"
+        @click="toggleTheme"
       >
         <i class="fa-solid fa-sun theme__light" />
         <i class="fa-solid fa-moon theme__dark" />
       </div>
-      <div class="navbarToggle" @click="toggleNavbar">
-        <i class="fa-solid fa-arrow-up"
-           :class="{ actived: isNavbarActived }"
-        ></i>
+      <div
+        class="navbarToggle"
+        @click="toggleNavbar"
+      >
+        <i
+          class="fa-solid fa-arrow-up"
+          :class="{ actived: isNavbarActived }"
+        />
       </div>
     </div>
-    <div class="navbarBody" :class="{ actived: isNavbarActived }">
+    <div
+      class="navbarBody"
+      :class="{ actived: isNavbarActived }"
+    >
       <div class="navbarBody__start">
         <navbarItem
-            v-for="(item, index) of navbarList"
-            v-bind="item"
-            :key="index"
-            :is-actived="item.link === route.path"
+          v-for="(item, index) of navbarList"
+          v-bind="item"
+          :key="index"
+          :is-actived="item.link === route.path"
         />
       </div>
       <div class="navbarBody__end">
         <navbarButton
-            v-for="(item, index) in config.contact"
-            :key="index"
-            v-bind="item"
+          v-for="(item, index) in config.contact"
+          :key="index"
+          v-bind="item"
         />
       </div>
     </div>

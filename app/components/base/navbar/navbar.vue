@@ -3,6 +3,7 @@ import NavbarItem from "~/components/base/navbar/navbarItem.vue"
 import NavbarButton from "~/components/base/navbar/navbarButton.vue"
 
 import { config } from "~/utils/config"
+import { useLocalState } from "~/utils/useLocalState"
 
 const route = useRoute()
 
@@ -10,10 +11,10 @@ const navbarList = config.layout.map((item) => {
   return { name: item.name, link: item.link }
 })
 
-const isDark = ref<boolean>(false);
+const isDark = useLocalState<boolean>("isDark", false)
 const toggleTheme = () => {
-  isDark.value = !isDark.value;
-};
+  isDark.value = !isDark.value
+}
 </script>
 
 <template>
@@ -190,7 +191,8 @@ const toggleTheme = () => {
 }
 
 @keyframes swing {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0);
   }
   50% {
