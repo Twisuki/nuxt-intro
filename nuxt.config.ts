@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/color-mode", "@nuxt/eslint", "@nuxt/eslint-config"],
   devtools: { enabled: true },
   app: {
-    baseURL: config.site.base,
+    baseURL: config.site.base ?? "/",
     head: {
       link: [
         // Font Awesome CDN
@@ -20,4 +20,9 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   compatibilityDate: "2025-07-15",
   ssr: true,
+  runtimeConfig: {
+    public: {
+      baseURL: config.site.base ?? "/",
+    }
+  }
 })
