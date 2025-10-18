@@ -20,9 +20,4 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   compatibilityDate: "2025-07-15",
   ssr: true,
-  runtimeConfig: {
-    public: {
-      baseURL: config.site.base ?? "/",
-    }
-  }
 })

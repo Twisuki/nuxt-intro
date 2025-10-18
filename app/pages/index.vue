@@ -35,7 +35,7 @@ const titleTyping = () => {
 <template>
   <div class="index">
     <background
-      :src="'/shizuku.png'"
+      :src="config.base + '/shizuku.png'"
       :css="{
         filter: 'brightness(0.5)',
       }"
@@ -45,7 +45,7 @@ const titleTyping = () => {
       <div class="title">
         <div class="title__avatar">
           <img
-            :src="config.avatar"
+            :src="config.base + '/config.avatar'"
             alt="avatar"
           >
         </div>
